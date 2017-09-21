@@ -67,7 +67,7 @@
 		
 		piePosition			: 'rightTop',	//'rightTop', 'leftTop', 'leftBottom', 'rightBottom'
 		
-		portrait			: false, //true, false. Select true if you don't want that your images are cropped
+		portrait			: true, //true, false. Select true if you don't want that your images are cropped
 		
 		rows				: 4,
 		
@@ -428,7 +428,7 @@
 					if(portrait==false||portrait=='false'){
 						if((wT/hT)<(w/h)) {
 							var r = w / wT;
-							var d = (Math.abs(h - (hT*r)))*0.5;
+							var d = (Math.abs(h - (hT*r)))*0;
 							switch(alignment){
 								case 'topLeft':
 									mTop = 0;
@@ -459,7 +459,7 @@
 									break;
 							}
 							t.css({
-								'height' : hT*r,
+								'height' : h,
 								'margin-left' : 0,
 								'margin-top' : mTop,
 								'position' : 'absolute',
@@ -510,8 +510,11 @@
 						}
 					} else {
 						if((wT/hT)<(w/h)) {
+							wT=960;
+							hT=960;
 							var r = h / hT;
-							var d = (Math.abs(w - (wT*r)))*0.5;
+							//var d = (Math.abs(w - (wT*r)))*0.5;
+							var d = w/2 - wT/2;
 							switch(alignment){
 								case 'topLeft':
 									mLeft = 0;
@@ -547,7 +550,7 @@
 								'margin-top' : 0,
 								'position' : 'absolute',
 								'visibility' : 'visible',
-								'width' : wT*r
+								'width' : wT
 							});
 						}
 						else {
@@ -1131,7 +1134,7 @@
 			} else {
 				$('.camera_loader',wrap).css({'visibility':'hidden'});
 				$('.camera_loader',wrap).fadeOut(400,function(){
-					$('.camera_loader',wrap).css({'visibility':'visible'});
+					$('.camera_loader',wrap).css({'invisibility':'visible'});
 				});
 			}
 			var rows = opts.rows,
@@ -2166,8 +2169,7 @@
 				}
 
 				if($(thumbs).length) {
-
-					$('.pix_thumb img',thumbs).click(function(){
+						$('.pix_thumb img',thumbs).click(function(){
 						if(!elem.hasClass('camerasliding')){
 							var idNum = parseFloat($(this).parents('li').index());
 							var curNum = parseFloat($('.cameracurrent',target).index());
@@ -2182,7 +2184,8 @@
 								thumbnailPos();
 								opts.onStartLoading.call(this);
 							}
-						}
+						}	
+					 
 					});
 
 					$('.camera_thumbs_cont .camera_prevThumbs',camera_thumbs_wrap).hover(function(){

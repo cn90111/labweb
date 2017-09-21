@@ -24,17 +24,27 @@
 	position: relative;
 	z-index: 0;
 }
-.camera_wrap img {max-width: none!important;
+.camera_wrap img {
+	/*
+		圖片在框架中的寬度
+	*/
+	max-width: none!important;
 }
 .camera_fakehover {
+	/*
+		圖片的大小
+	*/
 	height: 100%;
-	min-height: 60px;
+	min-height: 160px;
 	position: relative;
 	width: 100%;
 	z-index: 1;
-	background:#607a89;
+	background-image: url("../img/background.png");
 }
 .camera_wrap {
+	/*
+		圖片的寬度佔螢幕比例
+	*/
 	width: 100%;
 }
 .camera_src {
@@ -64,6 +74,9 @@
 	width: 100%;
 }
 .camera_target {
+	/*
+		圖片的大小
+	*/
 	bottom: 0;
 	height: 100%;
 	left: 0;
@@ -157,11 +170,16 @@
 	right:0;
 	z-index: 4;
 }
-.camera_wrap .camera_pag .camera_pag_ul {display:none;
+.camera_wrap .camera_pag .camera_pag_ul {
+	display:none;
 }
-.camera_commands {display:none;
+.camera_commands {
+	display:none;
 }
 .camera_prev, .camera_next {
+	/*
+		首頁的左右箭頭的設定
+	*/
 	cursor: pointer;
 	height: 44px;
 	position: absolute;
@@ -170,38 +188,75 @@
 	width: 25px;
 	z-index: 50;
 	display:block !important; 
-	
 }
-.camera_prev {left: 15%;
+.camera_prev {
+	/*
+		左箭頭離左邊界的距離
+	*/
+	left: 15%;
 }
 .camera_prev > span {
+	/*
+		暗左箭頭圖案
+	*/
 	background-position:0 0;
 	display: block;
 	height: 44px;
 	width: 25px;
 }
 .camera_next {
+	/*
+		右箭頭離右邊界的距離
+	*/
 	right: 15%;
 }
 .camera_prev > span, .camera_next > span {
+	/*
+		設定箭頭的圖案、設定圖案會不會重複出現
+	*/
 	background: url(../img/slider_nav.png);
 	background-repeat:no-repeat;
 }
 .camera_next > span {
+	/*
+		暗右箭頭圖案
+	*/
 	background-position:-25px 0;
+	/*
+		圖片左半邊剛好 25 px
+		background-position 能讓圖片正好從右邊顯示，左半邊消失
+	*/
 	display: block;
+	/*
+		block 才能設定長寬
+	*/
 	height: 44px;
+	/*
+		圖片上半邊高度剛好 44 px
+		height 能讓圖片只顯示上半部
+	*/
 	width: 25px;
 }
-.camera_next > span:hover {	background-position:-25px -44px;
+.camera_next > span:hover {	
+	/*
+		滑鼠放上去的動作
+		這邊能讓圖片只顯示右下半部(亮的右箭頭)
+	*/
+	background-position:-25px -44px;
 }
-.camera_prev > span:hover {	background-position:0 -44px;
+.camera_prev > span:hover {	
+	/*
+		滑鼠放上去的動作
+		這邊能讓圖片只顯示左下半部(亮的左箭頭)
+	*/
+	background-position:0 -44px;
 }
 .camera_clear {
 	display: block;
 	clear: both;
 }
-.showIt {display: none;
+.showIt {
+	display: none;
 }
 .camera_clear {
 	clear: both;
@@ -211,6 +266,7 @@
 	font-size:0;
 	position: relative;
 }
-.camera_caption {display:none;
+.camera_caption {
+	display:none;
 }
 
